@@ -1,12 +1,41 @@
+boolean spin = false;
+boolean crazy = false;
 void setup()
 {
+	frameRate(30);
 	size(600,600);
 	background(0);
 }
 void draw()
 {
+	if(crazy&&frameCount%5==0)
+		spin=!spin;
 	background(0);
-	myFractal(255,300,30);
+	if(spin)
+	{
+		pushMatrix();
+		translate(255,300);
+		rotate((float)Math.random()*2*PI);
+		myFractal(0,0,30);
+		popMatrix();
+		textSize(20);
+		fill(255,255,255);
+		text("SPINNING UWU FRACTAL",275,75);
+	}
+	else
+	{
+		myFractal(255,300,30);
+		textSize(20);
+		fill(255,255,255);
+		text("NORMAL UWU FRACTAL",265,75);
+	}
+}
+void keyPressed()
+{
+	if(key=='s'||key=='S')
+		spin=!spin;
+	if(key=='c'||key=='C')
+		crazy=!crazy;
 }
 public void myFractal(float x, float y, float siz)
 {
@@ -18,7 +47,7 @@ public void myFractal(float x, float y, float siz)
 	stroke(r,g,b);
 	textSize(siz);
 	text("uwu",x,y);
-	if(siz>10)
+	if(siz>20)
 	{
 		myFractal(x+siz*4.5,y+siz*4.5,siz*.7);
 		myFractal(x+siz*4.5,y-siz*4.5,siz*.7);
