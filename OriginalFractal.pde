@@ -8,9 +8,10 @@ void setup()
 }
 void draw()
 {
-	if(crazy&&frameCount%5==0)
-		spin=!spin;
 	background(0);
+	if(crazy&&frameCount%3==0){
+		spin=!spin;
+	}
 	if(spin)
 	{
 		pushMatrix();
