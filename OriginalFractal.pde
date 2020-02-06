@@ -15,6 +15,7 @@ void draw()
 	stroke(0);
 	fill(0);
 	rect(0,0,height,width);
+	text("TEST!!",200,200);
 	if(crazy&&frameCount%3==0){
 		spin=!spin;
 	}
