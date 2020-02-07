@@ -15,13 +15,11 @@ void draw()
 	stroke(0);
 	fill(0);
 	rect(0,0,height,width);
-	if(crazy&&frameCount%3==0){
-		spin=!spin;
-	}
 	if(crazy){
 		if(zoom>=1000) down = true;
 		if(zoom<(height/2.0) / tan(PI*30.0 / 180.0)-200) down = false;
 		zoom = down ? zoom-28 : zoom+28;
+		spin=true;
 	}
 	if(spin)
 	{
